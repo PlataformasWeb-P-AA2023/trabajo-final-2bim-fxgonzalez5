@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <title> Inicio </title>
+  </head>
+  <body>
+  <header>
+    <h1>Administración de Locales</h1>
+  </header>
+
+  <section>
+    <div>
+      <a href="{% url 'listar_locales_comida' %}">
+        <img src="{% static 'images/comida.png' %}" alt="Locales de Comida">
+      </a>
+      <p><b>Total de Locales de Comida:</b> {{ cant_locales_comida }}</p>
+    </div>
+
+    <div>
+      <a href="{% url 'listar_locales_repuestos' %}">
+        <img src="{% static 'images/repuestos.png' %}" alt="Locales de Comida">
+      </a>
+      <p><b>Total de Locales de Repuestos:</b> {{ cant_locales_repuestos }}</p>
+    </div>
+  </section>
+
+    <footer>
+      <p>Loja - Ecuador</p>
+      <p>{% now "j F Y H:i" %}</p>
+    </footer>
+  </body>
+</html>

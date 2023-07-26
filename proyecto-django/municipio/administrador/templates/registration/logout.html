@@ -1,0 +1,11 @@
+{% extends 'master.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div>
+        <h2> Logged out succefully </h2>
+        <br>
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+    </div>
+{% endblock %}

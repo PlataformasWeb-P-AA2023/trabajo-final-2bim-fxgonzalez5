@@ -1,0 +1,49 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Locales de Comida
+{% endblock %}
+
+{% block header %}
+  Administración de Locales de Comida
+{% endblock %}
+
+{% block content %}
+<h2>Cantidad de Locales de Comida: {{ cant_locales_comida }}</h2>
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Propietario</th>
+      <th>Dirección</th>
+      <th>Barrio</th>
+      <th>Tipo de Comida</th>
+      <th>Ventas Proyectadas al Mes</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  {% for c in locales_comida %}
+  <tr>
+    <td> {{c.propietario.nombres}} {{c.propietario.apellidos}} </td>
+    <td> {{c.direccion}} </td>
+    <td> {{c.barrio.nombre}} </td>
+    <td> {{c.tipo_comida}} </td>
+    <td> {{c.ventas_mes}} </td>
+    <td>
+      <a href="{% url 'editar_local_comida' c.id %}">Editar</a> <br>
+      <a href="{% url 'eliminar_local_comida' c.id %}"
+      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Locales de Repuestos
+{% endblock %}
+
+{% block header %}
+  Administración de Locales de Repuestos
+{% endblock %}
+
+{% block content %}
+<h2>Cantidad de Locales de Repuestos: {{ cant_locales_repuestos }}</h2>
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Propietario</th>
+      <th>Dirección</th>
+      <th>Barrio</th>
+      <th>Valor Total de la Mercadería</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  {% for r in locales_repuestos %}
+  <tr>
+    <td> {{r.propietario.nombres}} {{r.propietario.apellidos}} </td>
+    <td> {{r.direccion}} </td>
+    <td> {{r.barrio.nombre}} </td>
+    <td> {{r.total_mercaderia}} </td>
+    <td>
+      <a href="{% url 'editar_local_repuestos' r.id %}">Editar</a> <br>
+      <a href="{% url 'eliminar_local_repuestos' r.id %}"
+      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}
