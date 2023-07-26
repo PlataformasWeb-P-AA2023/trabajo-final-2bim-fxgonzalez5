@@ -20,6 +20,7 @@
       <th>Barrio</th>
       <th>Tipo de Comida</th>
       <th>Ventas Proyectadas al Mes</th>
+      <th>Pago del Permiso</th>
       <th>Opciones</th>
     </tr>
   </thead>
@@ -31,6 +32,7 @@
     <td> {{c.barrio.nombre}} </td>
     <td> {{c.tipo_comida}} </td>
     <td> {{c.ventas_mes}} </td>
+    <td> {{c.get_pago_permiso}} </td>
     <td>
       <a href="{% url 'editar_local_comida' c.id %}">Editar</a> <br>
       <a href="{% url 'eliminar_local_comida' c.id %}"

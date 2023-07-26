@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Locales Repuestos</title>
+  </head>
+  <body>
+    <h2>Listado de Locales de Repuestos - {{cant_locales_repuestos}}</h2>
+
+    {% for r in locales_repuestos %}
+    <ol>
+      <li><b>Propietario: </b>{{r['propietario_str']}}</li>
+      <li><b>Dirección: </b>{{r['direccion']}}</li>
+      <li><b>Barrio: </b>{{r['barrio_str']}}</li>
+      <li><b>Valor Total de la Mercadería: </b>{{r['total_mercaderia']}}</li>
+      <li><b>Valor del Pago del Permiso: </b>{{r['pago_permiso']}}</li>
+    </ol>
+    <hr>
+    {% endfor%}
+  </body>
+</html>

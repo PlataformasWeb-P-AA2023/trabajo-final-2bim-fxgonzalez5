@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Locales Comida</title>
+  </head>
+  <body>
+    <h2>Listado de Locales de Comida - {{cant_locales_comida}}</h2>
+
+    {% for c in locales_comida %}
+    <ol>
+      <li><b>Propietario: </b>{{c['propietario_str']}}</li>
+      <li><b>Dirección: </b>{{c['direccion']}}</li>
+      <li><b>Barrio: </b>{{c['barrio_str']}}</li>
+      <li><b>Tipo de Comida: </b>{{c['tipo_comida']}}</li>
+      <li><b>Ventas Proyectadas al Mes: </b>{{c['ventas_mes']}}</li>
+      <li><b>Valor del Pago del Permiso: </b>{{c['pago_permiso']}}</li>
+    </ol>
+    <hr>
+    {% endfor%}
+  </body>
+</html>

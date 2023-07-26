@@ -13,7 +13,7 @@ class BarrioAdmin(admin.ModelAdmin):
 admin.site.register(Barrio, BarrioAdmin)
 
 class LocalComidaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'get_propietario', 'direccion', 'get_barrio', 'tipo_comida', 'ventas_mes')
+    list_display = ('id', 'get_propietario', 'direccion', 'get_barrio', 'tipo_comida', 'ventas_mes', 'get_pago_permiso')
     search_fields = ('get_persona', 'get_barrio', 'tipo_comida')
     raw_id_fields = ('propietario', 'barrio')
 
@@ -25,7 +25,7 @@ class LocalComidaAdmin(admin.ModelAdmin):
 admin.site.register(LocalComida, LocalComidaAdmin)
 
 class LocalRepuestosAdmin(admin.ModelAdmin):
-    list_display = ('id', 'get_propietario', 'direccion', 'get_barrio', 'total_mercaderia')
+    list_display = ('id', 'get_propietario', 'direccion', 'get_barrio', 'total_mercaderia', 'get_pago_permiso')
     search_fields = ('get_persona', 'get_barrio')
     raw_id_fields = ('propietario', 'barrio')
 

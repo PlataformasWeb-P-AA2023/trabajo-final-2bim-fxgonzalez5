@@ -4,6 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets
+from rest_framework import permissions
+from administrador.serializers import *
+
 # importar las clases de models.py
 from administrador.models import *
 
@@ -105,3 +110,24 @@ def eliminar_local_repuestos(request, id):
     local_repuestos = LocalRepuestos.objects.get(pk=id)
     local_repuestos.delete()
     return redirect(listar_locales_repuestos)
+
+
+class PersonaViewSet(viewsets.ModelViewSet):
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+class BarrioViewSet(viewsets.ModelViewSet):
+    queryset = Barrio.objects.all()
+    serializer_class = BarrioSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+class LocalComidaViewSet(viewsets.ModelViewSet):
+    queryset = LocalComida.objects.all()
+    serializer_class = LocalComidaSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+class LocalRepuestosViewSet(viewsets.ModelViewSet):
+    queryset = LocalRepuestos.objects.all()
+    serializer_class = LocalRepuestosSerializer
+    # permission_classes = [permissions.IsAuthenticated]

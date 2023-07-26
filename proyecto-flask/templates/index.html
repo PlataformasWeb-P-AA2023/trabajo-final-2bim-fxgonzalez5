@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
@@ -20,23 +19,37 @@
 
   <section>
     <div>
-      <a href="{% url 'listar_locales_comida' %}">
-        <img src="{% static 'images/comida.png' %}" alt="Locales de Comida">
+      <a href="{{ url_for('personas') }}">
+        <img src="{{ url_for('static', filename='images/personas.png') }}" alt="Personas">
+      </a>
+      <p><b>Total de Personas:</b> {{ cant_personas }}</p>
+    </div>
+
+    <div>
+      <a href="{{ url_for('barrios') }}">
+        <img src="{{ url_for('static', filename='images/barrios.png') }}" alt="Barrios">
+      </a>
+      <p><b>Total de Barrios:</b> {{ cant_barrios }}</p>
+    </div>
+
+    <div>
+      <a href="{{ url_for('locales_comida') }}">
+        <img src="{{ url_for('static', filename='images/comida.png') }}" alt="Locales de Comida">
       </a>
       <p><b>Total de Locales de Comida:</b> {{ cant_locales_comida }}</p>
     </div>
 
     <div>
-      <a href="{% url 'listar_locales_repuestos' %}">
-        <img src="{% static 'images/repuestos.png' %}" alt="Locales de Repuestos">
+      <a href="{{ url_for('locales_repuestos') }}">
+        <img src="{{ url_for('static', filename='images/repuestos.png') }}" alt="Locales de Repuestos">
       </a>
       <p><b>Total de Locales de Repuestos:</b> {{ cant_locales_repuestos }}</p>
     </div>
   </section>
 
-    <footer>
-      <p>Loja - Ecuador</p>
-      <p>{% now "j F Y H:i" %}</p>
-    </footer>
+  <footer>
+    <p>Loja - Ecuador</p>
+    <p>{{ now.strftime("%d %B %Y %H:%M") }}</p>
+  </footer> 
   </body>
 </html>

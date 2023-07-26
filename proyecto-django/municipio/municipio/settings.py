@@ -38,15 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'django.contrib.sites',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     # 'allauth.socialaccount',
     # 'allauth.socialaccount.providers.github',
 
     'administrador',
-    'corsheaders',
     'rest_framework',
+    'corsheaders',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -155,3 +155,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
+# SITE_ID = 2
+CORS_ORIGIN_ALLOW_ALL = True

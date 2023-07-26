@@ -19,6 +19,7 @@
       <th>Dirección</th>
       <th>Barrio</th>
       <th>Valor Total de la Mercadería</th>
+      <th>Pago del Permiso</th>
       <th>Opciones</th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
     <td> {{r.direccion}} </td>
     <td> {{r.barrio.nombre}} </td>
     <td> {{r.total_mercaderia}} </td>
+    <td> {{r.get_pago_permiso}} </td>
     <td>
       <a href="{% url 'editar_local_repuestos' r.id %}">Editar</a> <br>
       <a href="{% url 'eliminar_local_repuestos' r.id %}"
