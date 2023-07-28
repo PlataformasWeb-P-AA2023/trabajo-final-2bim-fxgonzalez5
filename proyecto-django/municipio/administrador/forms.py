@@ -9,10 +9,10 @@ class LocalComidaForm(ModelForm):
         super(LocalComidaForm, self).__init__(*args, **kwargs)
         self.initial['propietario'] = propietario
         self.initial['barrio'] = barrio
-        # self.initial['propietario'] = "%s %s" % (propietario.nombres, propietario.apellidos)
-        # self.initial['barrio'] = barrio.nombre
-        # self.fields["propietario"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
-        # self.fields["barrio"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.initial['propietario'] = "%s %s" % (propietario.nombres, propietario.apellidos)
+        self.initial['barrio'] = barrio.nombre
+        self.fields["propietario"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["barrio"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
 
     class Meta:
         model = LocalComida
@@ -31,10 +31,10 @@ class LocalRepuestosForm(ModelForm):
         super(LocalRepuestosForm, self).__init__(*args, **kwargs)
         self.initial['propietario'] = propietario
         self.initial['barrio'] = barrio
-        # self.initial['propietario'] = "%s %s" % (propietario.nombres, propietario.apellidos)
-        # self.initial['barrio'] = barrio.nombre
-        # self.fields["propietario"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
-        # self.fields["barrio"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.initial['propietario'] = "%s %s" % (propietario.nombres, propietario.apellidos)
+        self.initial['barrio'] = barrio.nombre
+        self.fields["propietario"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
+        self.fields["barrio"].widget = forms.TextInput(attrs={'readonly': 'readonly'})
 
     class Meta:
         model = LocalRepuestos

@@ -1,0 +1,41 @@
+body {
+    background: #FEFEFD;
+    padding: 30px;
+  
+  }
+  
+  header {
+    background: #AA5F39;
+    color: #FFF;
+  }
+  
+  h1 {
+    margin: 0px;
+    padding: 10px 0px;
+    text-align: center;
+  }
+
+  section {
+    background-color: #738CA6;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  section div {
+    width: 35%;
+    text-align: center;
+  }
+
+  footer{
+    background:#7FBA5D;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  footer p {
+    margin: 0px 15px;
+    padding: 15px 0px;
+  }
+  
