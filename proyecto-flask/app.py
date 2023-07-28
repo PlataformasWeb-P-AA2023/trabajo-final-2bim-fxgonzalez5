@@ -9,16 +9,16 @@ app = Flask(__name__, template_folder='templates')
 @app.route("/")
 def index():
     now = datetime.datetime.now()
-    rp = requests.get("http://127.0.0.1:8000/api/personas/",
+    rp = requests.get("http://127.0.0.1:81/api/personas/",
             auth=(usuario, clave))
     cant_personas = json.loads(rp.content)['count']
-    rb = requests.get("http://127.0.0.1:8000/api/barrios/",
+    rb = requests.get("http://127.0.0.1:81/api/barrios/",
             auth=(usuario, clave))
     cant_barrios = json.loads(rb.content)['count']
-    rc = requests.get("http://127.0.0.1:8000/api/locales_comida/",
+    rc = requests.get("http://127.0.0.1:81/api/locales_comida/",
             auth=(usuario, clave))
     cant_locales_comida = json.loads(rc.content)['count']
-    rr = requests.get("http://127.0.0.1:8000/api/locales_repuestos/",
+    rr = requests.get("http://127.0.0.1:81/api/locales_repuestos/",
             auth=(usuario, clave))
     cant_locales_repuestos = json.loads(rr.content)['count']
     return render_template("index.html", now=now, cant_locales_comida=cant_locales_comida,
@@ -26,7 +26,7 @@ def index():
 
 @app.route("/personas")
 def personas():
-    r = requests.get("http://127.0.0.1:8000/api/personas/",
+    r = requests.get("http://127.0.0.1:81/api/personas/",
             auth=(usuario, clave))
     personas = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
@@ -35,7 +35,7 @@ def personas():
 
 @app.route("/barrios")
 def barrios():
-    r = requests.get("http://127.0.0.1:8000/api/barrios/",
+    r = requests.get("http://127.0.0.1:81/api/barrios/",
             auth=(usuario, clave))
     barrios = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
@@ -44,7 +44,7 @@ def barrios():
 
 @app.route("/locales/comida")
 def locales_comida():
-    r = requests.get("http://127.0.0.1:8000/api/locales_comida/",
+    r = requests.get("http://127.0.0.1:81/api/locales_comida/",
             auth=(usuario, clave))
     locales_comida = json.loads(r.content)['results']
     cant_locales_comida = json.loads(r.content)['count']
@@ -54,7 +54,7 @@ def locales_comida():
 
 @app.route("/locales/repuestos")
 def locales_repuestos():
-    r = requests.get("http://127.0.0.1:8000/api/locales_repuestos/",
+    r = requests.get("http://127.0.0.1:81/api/locales_repuestos/",
             auth=(usuario, clave))
     locales_repuestos = json.loads(r.content)['results']
     cant_locales_repuestos = json.loads(r.content)['count']
